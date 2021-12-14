@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import './style.css';
 
-const App = () => {
-  let PresentTime = new Date().toLocaleTimeString();
-  const [CurrTime, setCurrTime] = useState(PresentTime);
 
-  const UpdateTime = () => {
-    PresentTime = new Date().toLocaleTimeString();
-    setCurrTime(PresentTime);
-  };
+const App = () => {
+let time=new Date().toLocaleTimeString();
+
+const [currTime,setCurrTime]=useState(time);
+
+const UpdateTime=()=>{
+time=new Date().toLocaleTimeString();
+setCurrTime(time)
+}
+setInterval(UpdateTime,1000);
+
   return (
     <>
-      <h1>{CurrTime}</h1>
-      <button onClick={UpdateTime}>click me</button>
+      <h1>{currTime}</h1>
     </>
   );
 };
